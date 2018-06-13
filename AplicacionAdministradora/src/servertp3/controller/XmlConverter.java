@@ -19,7 +19,7 @@ import javax.xml.bind.Unmarshaller;
 public class XmlConverter {
     static void ObjectToXml(ListaPlatos lista){
         try {
-            File file = new File("C:\\Users\\Paul Villafuerte\\Documents\\NetBeansProjects\\PruebasJAXB\\file.xml");
+            File file = new File("C:\\Users\\Paul Villafuerte\\Documents\\GitHub\\Progra-POO\\file.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -35,7 +35,7 @@ public class XmlConverter {
     
     static void XmlToObject(String nombreArchivo){
         try {
-            File archivo = new File("C:\\Users\\Paul Villafuerte\\Documents\\NetBeansProjects\\PruebasJAXB\\"+nombreArchivo+".xml");
+            File archivo = new File("C:\\Users\\Paul Villafuerte\\Documents\\GitHub\\Progra-POO\\"+nombreArchivo+".xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
 
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
