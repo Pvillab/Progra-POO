@@ -28,24 +28,23 @@ public recibirMensaje(final Server server, final Socket socket) {
  public void run() {
         
         try(ObjectInputStream reader = new ObjectInputStream(socket.getInputStream())) {
+           
             while (server.isRunning()) {
                 try {
-                    // The thread will wait here until the server sends data.
-                    final String line = (String) reader.readObject();
-                    if (null == line || line.isEmpty()) {
-                        server.stop();
-                    } else {
-                        System.out.println(line);
-                    }
+                    //Transforma el mensaje en el objeto
+                    Mensaje miMensaje = (Mensaje)reader.readObject();
+                    
+                    //Este metodo interpretara el mensaje
+                    server.manejarMensaje(miMensaje);
+                
+                    
                 } catch (IOException | ClassNotFoundException e) {
                     server.stop();
                 }
             }
         } catch (IOException ex) {
-            System.out.println("ERROR Abort reading. Could not establish InputStream from Socket.");
-        } finally {
-            
-            ObjectInputStream reader=null;
+            System.out.println("ERROR No se pudo establecer una comunicacion con el servidor");
+              
         }
     }
 

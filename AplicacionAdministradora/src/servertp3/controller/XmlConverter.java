@@ -16,10 +16,10 @@ import javax.xml.bind.Unmarshaller;
  * @author Paul Villafuerte
  */
 
-public class XmlConverter {
-    static void ObjectToXml(ListaPlatos lista){
+public class  XmlConverter {
+    static void ObjectToXmlPlatos(ListaPlatos lista){
         try {
-            File file = new File("C:\\Users\\Paul Villafuerte\\Documents\\GitHub\\Progra-POO\\file.xml");
+            File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -33,17 +33,56 @@ public class XmlConverter {
         }
     }
     
-    static void XmlToObject(String nombreArchivo){
+    static  ListaPlatos XmlToObjectPlatos(){
         try {
-            File archivo = new File("C:\\Users\\Paul Villafuerte\\Documents\\GitHub\\Progra-POO\\"+nombreArchivo+".xml");
+            File archivo = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
 
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             ListaPlatos lista = (ListaPlatos) jaxbUnmarshaller.unmarshal(archivo);
             System.out.println(lista);
+            return lista;
 
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+        //Si no encuentra nada devuelve una lista vacia
+        ListaPlatos listaVacia = new ListaPlatos();
+        return listaVacia;
+        }
+    
+    static void ObjectToXmlPedidos(ListaPedidos lista){
+        try {
+            File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Pedidos.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            jaxbMarshaller.marshal(lista, file);
+            jaxbMarshaller.marshal(lista, System.out);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
+
+    static ListaPedidos XmlToObjectPedidos() {
+        try {
+            File archivo = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Pedidos.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(ListaPlatos.class);
+
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            ListaPedidos lista = (ListaPedidos) jaxbUnmarshaller.unmarshal(archivo);
+            System.out.println(lista);
+            return lista;
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+        //Si no encuentra nada devuelve una lista vacia
+        ListaPedidos listaVacia = new ListaPedidos();
+        return listaVacia;
+        }
+        
 }

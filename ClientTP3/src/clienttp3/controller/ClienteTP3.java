@@ -5,32 +5,38 @@
  */
 package clienttp3.controller;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author mosde
  */
-class ClienteTP3 {
+public class ClienteTP3 {
     
     Socket socket;
     
-    public void start() throws IOException{
+    public void conectar() throws IOException{
+      
         socket = new Socket("127.0.0.1", 4005);
         (new Thread(new recibirMensaje(this,socket))).start();
         
     }
 
     boolean isRunning() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return socket.isConnected();
     }
     
-    public String prueba(){
-       return "JJJ";
-    }
 
     void stop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            socket.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteTP3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

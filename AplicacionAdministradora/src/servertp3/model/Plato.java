@@ -1,10 +1,11 @@
 
-package servertp3.controller;
+package servertp3.model;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 import java.io.Serializable;
+
 
 /**
  *
@@ -23,6 +24,7 @@ public final class  Plato implements Serializable {
     private double piezasPorPorcion;
     private double pesoporPorcion;
     private boolean habilitado;
+    
     private Imagen miImagen;
 
     /**

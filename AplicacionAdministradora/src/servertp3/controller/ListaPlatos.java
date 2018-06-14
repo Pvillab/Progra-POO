@@ -1,4 +1,5 @@
 package servertp3.controller;
+import servertp3.model.Plato;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -19,5 +20,9 @@ public class ListaPlatos {
     
     public void setListaPlatillos(ArrayList<Plato> lista){
         this.lista = lista;
+    }
+    
+    public void addListaPlatillos(Plato plato){
+        this.lista.add(plato);
     }
 }
