@@ -22,40 +22,56 @@ import java.util.logging.Logger;
  */
 public class Server {
     
-    private static ServerSocket servidor;
-    private static Socket socket ;
-    private static AdministradorInformacion ADMI;
+    public static ServerSocket servidor;
+    public static ServerSocket servidorRecibo;
+    private static Socket socketRecibo ;
+    public Socket socketEnvio;
+    private AdministradorInformacion ADMI;
     private Thread miThread;
     
 
     public void start() throws IOException{
+        
         servidor = new ServerSocket(4005);
-        socket= servidor.accept();      
-        miThread=new Thread(new recibirMensaje(this,socket));
+        servidorRecibo = new ServerSocket(4006);
+        socketEnvio= servidor.accept();
+        socketRecibo= servidorRecibo.accept();           
+        miThread=new Thread(new recibirMensaje(this,socketRecibo));
         miThread.start();
         
     }
     
     public boolean isRunning() {
-        if( socket!=null){
+        if( socketRecibo!=null){
             return true;
         }
         return false;      
     }
 
     public void stop() throws IOException {
-        socket.close();
-        this.socket = null;
+        socketRecibo.close();
+        this.socketRecibo = null;
     }
     
-    private void enviarMensaje(Mensaje miMensaje){
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+    public void enviarMensaje(Mensaje miMensaje){
+        
+        try{ 
+            ObjectOutputStream out = new ObjectOutputStream (socketEnvio.getOutputStream());
             out.writeObject(miMensaje);
-        } catch (IOException ex) {
-            //Si el socket esta cerrado se debe verificar
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            out.close();
+            socketEnvio= servidor.accept();
+            } catch (IOException ex) {
+                //Si el socket esta cerrado se debe verificar
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+       
+        
+        
+        
+        
+        
+        
           
     }
     
@@ -104,6 +120,56 @@ public class Server {
         
         
     }
+
+    public static ServerSocket getServidor() {
+        return servidor;
+    }
+
+    public static void setServidor(ServerSocket servidor) {
+        Server.servidor = servidor;
+    }
+
+    public static ServerSocket getServidorRecibo() {
+        return servidorRecibo;
+    }
+
+    public static void setServidorRecibo(ServerSocket servidorRecibo) {
+        Server.servidorRecibo = servidorRecibo;
+    }
+
+    public static Socket getSocketRecibo() {
+        return socketRecibo;
+    }
+
+    public static void setSocketRecibo(Socket socketRecibo) {
+        Server.socketRecibo = socketRecibo;
+    }
+
+    public Socket getSocketEnvio() {
+        return socketEnvio;
+    }
+
+    public void setSocketEnvio(Socket socketEnvio) {
+        this.socketEnvio = socketEnvio;
+    }
+
+    public AdministradorInformacion getADMI() {
+        return ADMI;
+    }
+
+    public void setADMI(AdministradorInformacion ADMI) {
+        this.ADMI = ADMI;
+    }
+
+    public Thread getMiThread() {
+        return miThread;
+    }
+
+    public void setMiThread(Thread miThread) {
+        this.miThread = miThread;
+    }
+    
+    
   
     
 }

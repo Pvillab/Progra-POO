@@ -20,7 +20,8 @@ import model.Plato;
  */
 public class ClienteTP3 {
     
-    Socket socket;
+    Socket socketEnvio;
+     Socket socketRecibo;
     double precioPaquete;
     double precioExpres;
     ArrayList <Plato> misPlatos;
@@ -28,21 +29,22 @@ public class ClienteTP3 {
     
     public void conectar() throws IOException{
       
-        socket = new Socket("127.0.0.1", 4005);
-        miThread =new Thread(new recibirMensaje(this,socket));
+        socketEnvio = new Socket("127.0.0.1", 4006);
+        socketRecibo = new Socket("127.0.0.1", 4005);
+        miThread =new Thread(new recibirMensaje(this,socketRecibo));
         miThread.start();
         
         
     }
 
     boolean isRunning() {
-        return socket.isConnected();
+        return socketRecibo.isConnected();
     }
     
 
     void stop() {
         try {
-            socket.close();
+            socketRecibo.close();
         } catch (IOException ex) {
             Logger.getLogger(ClienteTP3.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,11 +54,12 @@ public class ClienteTP3 {
        
         try {
             System.out.println("Queso");
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+            ObjectOutputStream out = new ObjectOutputStream(socketEnvio.getOutputStream());
             out.writeObject(miMensaje);
             System.out.println("Queso3");
-            out.flush();
-            out.reset();
+            out.close();
+            socketEnvio = new Socket("127.0.0.1", 4006);
+            
         } catch (IOException ex) {
             //Si el socket esta cerrado se debe verificar
             Logger.getLogger(ClienteTP3.class.getName()).log(Level.SEVERE, null, ex);

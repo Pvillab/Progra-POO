@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,17 +42,24 @@ import java.net.Socket;
                     
                     //Este metodo interpretara el mensaje
                     ClienteTP3.manejarMensaje(miMensaje);
-                       
+                    
+                    reader.close();
+                    
                    } catch (IOException | ClassNotFoundException e) {
-                       ClienteTP3.stop();
+                       System.out.println(e);
                    }
       
            } catch (IOException ex) {
                System.out.println("ERROR Abort reading. Could not establish InputStream from Socket."+ex);
                
            } finally {
-
-               ObjectInputStream reader=null;
+               
+               try {
+                   ObjectInputStream reader=null;
+                   ClienteTP3.socketRecibo = new Socket("127.0.0.1", 4005);
+               } catch (IOException ex) {
+                   Logger.getLogger(recibirMensaje.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
         }
     }
