@@ -27,12 +27,15 @@ public class ClienteTP3 {
     ArrayList <Plato> misPlatos;
     Thread miThread;
     
-    public void conectar() throws IOException{
+    public void conectar() throws IOException, InterruptedException{
       
         socketEnvio = new Socket("127.0.0.1", 4006);
         socketRecibo = new Socket("127.0.0.1", 4005);
         miThread =new Thread(new recibirMensaje(this,socketRecibo));
         miThread.start();
+        //Envia el mensaje 0 para inicializar los platos 
+        Mensaje primerMensaje = new Mensaje(0,0.0);
+        enviarMensaje(primerMensaje);
         
         
     }
@@ -78,6 +81,7 @@ public class ClienteTP3 {
             
                 case 0:
                     //Recibe los platos 
+                    System.out.print("YEAHHH");
                     this.misPlatos=mensaje.getMisPlatos();
                     break;
                 case 1:
