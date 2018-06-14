@@ -30,7 +30,7 @@ public class ServerGUI extends javax.swing.JFrame {
         
         miServer = new Server();
         miServer.start(); 
-        miServer.prueba();
+        
     }
 
     /**

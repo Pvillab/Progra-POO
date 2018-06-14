@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servertp3.model;
+package servertp3.controller;
 
 import java.io.Serializable;
+import servertp3.model.Pedido;
+import servertp3.model.Plato;
 
 /**
  *

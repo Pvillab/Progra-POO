@@ -1,4 +1,4 @@
-package servertp3.controller;
+package servertp3.model;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
