@@ -16,6 +16,7 @@ import javax.swing.ListSelectionModel;
  *
  * @author Ignacio
  */
+
 public class PrincipalCliente extends javax.swing.JFrame {
 
     /**
@@ -223,7 +224,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 576, Short.MAX_VALUE))
                     .addComponent(jScrollPane9))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
