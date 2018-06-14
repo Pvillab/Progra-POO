@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package servertp3.model;
 
+package servertp3.controller;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Clase de platillo que contiene la informacion requerida que debe ser almacenada y compartida, la immagen se salva como el nombre de su ubicacion, en futuros proyectos se puede hacer una copia de la imagen en el mismo archivo
- * @author mosde
+ *
+ * @author Paul Villafuerte
  */
+
+@XmlRootElement
 public final class  Plato implements Serializable {
     
     private String codigo;
@@ -22,7 +23,7 @@ public final class  Plato implements Serializable {
     private double piezasPorPorcion;
     private double pesoporPorcion;
     private boolean habilitado;
-    private String ubicacionImagen;
+    private Imagen miImagen;
 
     /**
      * Constructor sin imagen
@@ -36,6 +37,8 @@ public final class  Plato implements Serializable {
      * @param pesoporPorcion
      * @param habilitado 
      */
+    public Plato(){};
+    
     public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado) {
         this.codigo = codigo;
         this.tipo = tipo;
@@ -46,7 +49,7 @@ public final class  Plato implements Serializable {
         this.piezasPorPorcion = piezasPorPorcion;
         this.pesoporPorcion = pesoporPorcion;
         this.habilitado = habilitado;
-        this.ubicacionImagen = "";
+        this.miImagen=null;
     }
 
     /**
@@ -62,7 +65,7 @@ public final class  Plato implements Serializable {
      * @param habilitado
      * @param miImagen 
      */
-    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado, String miImagen) {
+    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado, Imagen miImagen) {
         this.codigo = codigo;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -72,13 +75,14 @@ public final class  Plato implements Serializable {
         this.piezasPorPorcion = piezasPorPorcion;
         this.pesoporPorcion = pesoporPorcion;
         this.habilitado = habilitado;
-        this.ubicacionImagen = miImagen;
+        this.miImagen = miImagen;
     }
 
     public String getCodigo() {
         return codigo;
     }
-
+    
+    @XmlElement
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -86,7 +90,8 @@ public final class  Plato implements Serializable {
     public String getTipo() {
         return tipo;
     }
-
+    
+    @XmlElement
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
@@ -94,7 +99,8 @@ public final class  Plato implements Serializable {
     public String getNombre() {
         return nombre;
     }
-
+    
+    @XmlElement
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -102,7 +108,8 @@ public final class  Plato implements Serializable {
     public String getDescripcion() {
         return descripcion;
     }
-
+    
+    @XmlElement
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -110,7 +117,8 @@ public final class  Plato implements Serializable {
     public int getRacionRecomendada() {
         return racionRecomendada;
     }
-
+    
+    @XmlElement
     public void setRacionRecomendada(int racionRecomendada) {
         this.racionRecomendada = racionRecomendada;
     }
@@ -119,6 +127,7 @@ public final class  Plato implements Serializable {
         return caloriasPorcion;
     }
 
+    @XmlElement
     public void setCaloriasPorcion(int caloriasPorcion) {
         this.caloriasPorcion = caloriasPorcion;
     }
@@ -127,6 +136,7 @@ public final class  Plato implements Serializable {
         return piezasPorPorcion;
     }
 
+    @XmlElement
     public void setPiezasPorPorcion(double piezasPorPorcion) {
         this.piezasPorPorcion = piezasPorPorcion;
     }
@@ -135,6 +145,7 @@ public final class  Plato implements Serializable {
         return pesoporPorcion;
     }
 
+    @XmlElement
     public void setPesoporPorcion(double pesoporPorcion) {
         this.pesoporPorcion = pesoporPorcion;
     }
@@ -143,19 +154,18 @@ public final class  Plato implements Serializable {
         return habilitado;
     }
 
+    @XmlElement
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
     }
 
-    public String getMiImagen() {
-        return ubicacionImagen;
+    public Imagen getMiImagen() {
+        return miImagen;
     }
 
-    public void setMiImagen(String miImagen) {
-        this.ubicacionImagen = miImagen;
+    @XmlElement
+    public void setMiImagen(Imagen miImagen) {
+        this.miImagen = miImagen;
     }
-    
-    
-    
-    
+
 }
