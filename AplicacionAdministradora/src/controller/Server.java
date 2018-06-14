@@ -38,6 +38,7 @@ public class Server {
         socketRecibo= servidorRecibo.accept();           
         miThread=new Thread(new recibirMensaje(this,socketRecibo));
         miThread.start();
+        ADMI=
         
     }
     
@@ -92,8 +93,11 @@ public class Server {
           switch (mensaje.getType()) {
             
               case 0:
-                  //Envia la lista de los platos
-                  Mensaje mensajePlatos = new Mensaje(0,this.ADMI.getMisPlatos().getLista());
+                  Mensaje mensajePlatos;
+                  //Envia la lista de los platos si no esta vacio
+                  if(this.ADMI.getMisPlatos().getLista()!= null)
+                    mensajePlatos = new Mensaje(0,this.ADMI.getMisPlatos().getLista());
+                  break;
               case 1:
                   System.out.print("YEAHHH");
                 break;

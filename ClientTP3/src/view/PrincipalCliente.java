@@ -541,7 +541,9 @@ public class PrincipalCliente extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,"Imposible conectarse con el servidor en este momento","Error al conectarse", JOptionPane.ERROR_MESSAGE);
             
-        }
+        }       catch (InterruptedException ex) {
+                    Logger.getLogger(PrincipalCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
         });
