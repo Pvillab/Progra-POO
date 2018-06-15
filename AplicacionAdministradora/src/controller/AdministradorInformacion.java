@@ -32,8 +32,7 @@ public class AdministradorInformacion {
         this.preciopaquete = 0.0;
         
     }
-    
-    
+      
 
     public ArrayList<Plato>  getMisPlatos() {
         return misPlatos.getLista();
@@ -67,13 +66,20 @@ public class AdministradorInformacion {
         this.preciopaquete = preciopaquete;
     }
     
-    //Agrega el platillo y lo salva en la memoria
+    /**
+     * Agrega el platillo y lo salva en la memoria.
+     * @param agrePlato 
+     */
     public void agregarPlatillo(Plato agrePlato){
         this.misPlatos.addListaPlatillos(agrePlato);
         XmlConverter.ObjectToXmlPlatos(misPlatos);
        
     }
 
+    /**
+     * Agrega el nuevo pedido a memoria.
+     * @param ENVIONUEVO 
+     */
     void agregarPedido(Pedido ENVIONUEVO ) {
         this.misPedidos.lista.add(ENVIONUEVO);
     }

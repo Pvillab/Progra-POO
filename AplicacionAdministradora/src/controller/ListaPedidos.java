@@ -21,6 +21,10 @@ class ListaPedidos implements Serializable {
     @XmlElement(name = "book")
     ArrayList<Pedido> lista;
     
+    /**
+     * Constructor
+     * Crea un arreglo para los pedidos.
+     */
     public ListaPedidos() {
         this.lista = new ArrayList();
     }

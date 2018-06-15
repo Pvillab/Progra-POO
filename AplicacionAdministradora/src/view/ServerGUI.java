@@ -1,7 +1,6 @@
 package view;
 
 
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import controller.Server;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.Plato;
 
 /**
  *
@@ -105,6 +107,11 @@ public class ServerGUI extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Entradas", "Principal", "Postre", "Bebidas" }));
 
@@ -706,6 +713,29 @@ public class ServerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxHabilitadoActionPerformed
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        actualizarTabla(this.miServer.getADMI().getMisPlatos());
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    public void actualizarTabla(ArrayList<Plato> listaPlatos){
+        DefaultTableModel model=(DefaultTableModel) jTableCatalogo.getModel();
+        model.setRowCount(0);
+        Object rowData[]=new Object[6];
+        for(int i=0;i<listaPlatos.size();i++){
+            rowData[0]=listaPlatos.get(i).getTipo()+"-"+listaPlatos.get(i).getCodigo();
+            rowData[1]=listaPlatos.get(i).getNombre();
+            rowData[2]=listaPlatos.get(i).getRacionRecomendada();
+            rowData[3]=listaPlatos.get(i).getCaloriasPorcion();
+            rowData[4]=listaPlatos.get(i).getPrecio();
+            if(listaPlatos.get(i).isHabilitado()){
+                rowData[5]=("Disponnible");
+            }
+            else{
+                rowData[5]=("No disponnible");
+            }
+            model.addRow(rowData);
+        }
+    }
     /**
      * @param args the command line arguments
      * @throws java.io.IOException

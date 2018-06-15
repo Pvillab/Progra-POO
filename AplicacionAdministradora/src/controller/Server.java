@@ -30,6 +30,10 @@ public class Server {
     private Thread miThread;
     
 
+    /**
+     * Inicia el servidor.
+     * @throws IOException 
+     */
     public void start() throws IOException{
         
         servidor = new ServerSocket(4005);
@@ -42,6 +46,10 @@ public class Server {
         
     }
     
+    /**
+     * Comprueba que el servidor este inicializado.
+     * @return boolean
+     */
     public boolean isRunning() {
         if( socketRecibo!=null){
             return true;
@@ -49,11 +57,19 @@ public class Server {
         return false;      
     }
 
+    /**
+     * Detiene el servidor.
+     * @throws IOException 
+     */
     public void stop() throws IOException {
         socketRecibo.close();
         this.socketRecibo = null;
     }
     
+    /**
+     * Envia un mensaje al cliente.
+     * @param miMensaje 
+     */
     public void enviarMensaje(Mensaje miMensaje){
         
         try{ 
@@ -69,6 +85,10 @@ public class Server {
        
     }
     
+    /**
+     * Envia un platillo.
+     * @param miPlato 
+     */
     public void nuevoPlatillo(Plato miPlato){
         this.ADMI.agregarPlatillo(miPlato);
         //Se crea el mensaje por enviar

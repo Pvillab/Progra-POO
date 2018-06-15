@@ -16,6 +16,10 @@ public class ListaPlatos implements Serializable {
     
     private ArrayList<Plato> lista;
 
+    /**
+     * Constructor
+     * Crea un arreglo de platos.
+     */
     public ListaPlatos() {
         this.lista = new ArrayList();
     }
@@ -28,6 +32,10 @@ public class ListaPlatos implements Serializable {
         this.lista = lista;
     }
     
+    /**
+     * Le hace un agregar a la lista de un plato en especifico.
+     * @param plato 
+     */
     public void addListaPlatillos(Plato plato){
         this.lista.add(plato);
     }

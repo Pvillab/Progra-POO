@@ -60,6 +60,10 @@ public class PedidoExpres extends Pedido {
         this.ubicacionExacta = ubicacionExacta;
     }
 
+    /**
+     * Retorna el tipo de orden de este pedido.
+     * @return String
+     */
     @Override
     public String tipoOrden() {
         return "Expres";

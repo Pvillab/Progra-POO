@@ -28,22 +28,42 @@ public class Mensaje implements Serializable {
     private double precio = 0.0;
     private ArrayList <Plato> misPlatos;
 
+    /**
+     * Mensaje que envia un plato.
+     * @param type
+     * @param miPlato 
+     */
     public Mensaje(int type, Plato miPlato) {
         this.platoEnviar= miPlato;
         this.type = type;
     }
     
+    /**
+     * Mensaje que envia el precio.
+     * @param type
+     * @param precio 
+     */
     public Mensaje(int type, double precio) {
         this.precio=precio;
         this.type = type;
     }
 
+    /**
+     * Mensaje que envia el pedido.
+     * @param type
+     * @param pedido 
+     */
     public Mensaje(int type, Pedido pedido) {
         this.type = type;
         this.pedidoNuevo=pedido;
         
     }
 
+    /**
+     * Mensaje que envia el arreglo de platos.
+     * @param type
+     * @param misPlatos 
+     */
     public Mensaje(int type, ArrayList<Plato> misPlatos) {
         this.type = type;
         this.misPlatos = misPlatos;

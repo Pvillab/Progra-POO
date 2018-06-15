@@ -21,12 +21,19 @@ public class recibirMensaje extends Thread {
     private Socket socket;
     private final Server server;    
 
-
+/**
+ * Constructor
+ * @param server
+ * @param socket 
+ */
 public recibirMensaje(final Server server, final Socket socket) {
     this.server = server;
     this.socket = socket;
 }
 
+/**
+ * Es el thread utilizado por el server.
+ */
 @Override
  public void run() {
         

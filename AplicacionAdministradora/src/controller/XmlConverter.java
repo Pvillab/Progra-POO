@@ -17,6 +17,10 @@ import javax.xml.bind.Unmarshaller;
  */
 
 public class  XmlConverter {
+    /**
+     * Genera un xml a partir de una lista de platos.
+     * @param lista 
+     */
     static void ObjectToXmlPlatos(ListaPlatos lista){
         
         File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml"); 
@@ -34,7 +38,11 @@ public class  XmlConverter {
             }
     }
     
-    static  ListaPlatos XmlToObjectPlatos(){
+    /**
+     * Generea un arreglo de platos a partir de un Xml.
+     * @return 
+     */
+    static ListaPlatos XmlToObjectPlatos(){
         File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml");
         if(file.exists() && !file.isDirectory()) {
             
@@ -54,6 +62,10 @@ public class  XmlConverter {
         return listaVacia;
         }
     
+    /**
+     * Genera un Xml a partir de un arreglo de pedidos.
+     * @param lista 
+     */
     static void ObjectToXmlPedidos(ListaPedidos lista){
         File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml");
         
@@ -71,6 +83,10 @@ public class  XmlConverter {
             }
     }
 
+    /**
+     * Genera un xml a partir de una lista de pedidos.
+     * @return 
+     */
     static ListaPedidos XmlToObjectPedidos() {
         File file = new File("C:\\Users\\mosde\\Desktop\\GitHub\\Progra-POO\\Platillos.xml");
         if(file.exists() && !file.isDirectory()) { 

@@ -30,6 +30,11 @@ public final class  Plato implements Serializable {
     private Imagen miImagen;
 
     /**
+     * COnstructor Vacio.
+     */
+    public Plato(){};
+    
+    /**
      * Constructor sin imagen
      * @param codigo
      * @param tipo
@@ -41,8 +46,6 @@ public final class  Plato implements Serializable {
      * @param pesoporPorcion
      * @param habilitado 
      */
-    public Plato(){};
-    
     public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado) {
         this.codigo = codigo;
         this.tipo = tipo;
