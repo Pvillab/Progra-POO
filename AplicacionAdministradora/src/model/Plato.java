@@ -20,6 +20,8 @@ public final class  Plato implements Serializable {
     private String nombre;
     private String descripcion;
     private int racionRecomendada;
+    private double precio;
+    private int contador;
     private int caloriasPorcion;
     private double piezasPorPorcion;
     private double pesoporPorcion;
@@ -170,4 +172,23 @@ public final class  Plato implements Serializable {
         this.miImagen = miImagen;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    @XmlElement
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    @XmlElement
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    
 }

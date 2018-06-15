@@ -14,12 +14,19 @@ import java.util.Date;
  * @author mosde
  */
 public abstract class Pedido implements Serializable  {
-    private ArrayList <Plato> misPlatos;
+    ArrayList <Plato> misPlatos;
     private ArrayList<Integer> numeroPorciones;
     private Date fechaRealizado;
     private static int numeroSerial;
     private String nombreRealizaPedido;
-
+    
+    /**
+     * Constructor
+     * @param misPlatos
+     * @param numeroPorciones
+     * @param fechaRealizado
+     * @param nombreRealizaPedido 
+     */
     public Pedido(ArrayList<Plato> misPlatos, ArrayList<Integer> numeroPorciones, Date fechaRealizado, String nombreRealizaPedido) {
         this.misPlatos = misPlatos;
         this.numeroPorciones = numeroPorciones;
