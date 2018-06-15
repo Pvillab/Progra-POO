@@ -95,9 +95,13 @@ public class Server {
               case 0:
                   Mensaje mensajePlatos;
                   //Envia la lista de los platos si no esta vacio
-                  if(this.ADMI.getMisPlatos().getLista()!= null)
-                    mensajePlatos = new Mensaje(0,this.ADMI.getMisPlatos().getLista());
+                  System.out.println(this.ADMI.getMisPlatos().size());
+                  if(!this.ADMI.getMisPlatos().isEmpty()){
+                    mensajePlatos = new Mensaje(0,this.ADMI.getMisPlatos());
+                    enviarMensaje(mensajePlatos);
+                  }
                   break;
+                  
               case 1:
                   System.out.print("YEAHHH");
                 break;
