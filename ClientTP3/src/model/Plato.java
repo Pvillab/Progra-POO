@@ -38,12 +38,13 @@ public final class  Plato implements Serializable {
      * @param pesoporPorcion
      * @param habilitado 
      */
-    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado) {
+    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, double precio, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado) {
         this.codigo = codigo;
         this.tipo = tipo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.racionRecomendada = racionRecomendada;
+        this.precio = precio;
         this.caloriasPorcion = caloriasPorcion;
         this.piezasPorPorcion = piezasPorPorcion;
         this.pesoporPorcion = pesoporPorcion;
@@ -64,12 +65,13 @@ public final class  Plato implements Serializable {
      * @param habilitado
      * @param miImagen 
      */
-    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado, Imagen miImagen) {
+    public Plato(String codigo, String tipo, String nombre, String descripcion, int racionRecomendada, double precio, int caloriasPorcion, double piezasPorPorcion, double pesoporPorcion, boolean habilitado, Imagen miImagen) {
         this.codigo = codigo;
         this.tipo = tipo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.racionRecomendada = racionRecomendada;
+        this.precio = precio;
         this.caloriasPorcion = caloriasPorcion;
         this.piezasPorPorcion = piezasPorPorcion;
         this.pesoporPorcion = pesoporPorcion;
