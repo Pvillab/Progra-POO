@@ -38,7 +38,7 @@ public class Server {
         socketRecibo= servidorRecibo.accept();           
         miThread=new Thread(new recibirMensaje(this,socketRecibo));
         miThread.start();
-        ADMI=
+        ADMI= new AdministradorInformacion();
         
     }
     

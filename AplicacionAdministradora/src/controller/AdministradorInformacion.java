@@ -25,6 +25,8 @@ public class AdministradorInformacion {
     public AdministradorInformacion() {
         this.misPlatos = XmlConverter.XmlToObjectPlatos();
         this.misPedidos = XmlConverter.XmlToObjectPedidos();
+        this.precioExpres = 0;
+        this.preciopaquete = 0;
         
     }
     
