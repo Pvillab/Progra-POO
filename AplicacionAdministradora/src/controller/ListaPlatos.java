@@ -13,7 +13,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ListaPlatos implements Serializable {
     @XmlElementWrapper
     @XmlElement(name = "book")
-    ArrayList<Plato> lista;
+    
+    private ArrayList<Plato> lista;
+
+    public ListaPlatos() {
+        this.lista = new ArrayList();
+    }
     
     public ArrayList<Plato> getLista(){
         return lista;

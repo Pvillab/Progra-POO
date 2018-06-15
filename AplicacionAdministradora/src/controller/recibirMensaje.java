@@ -32,7 +32,7 @@ public recibirMensaje(final Server server, final Socket socket) {
         
     while (server.isRunning()) {
         try(ObjectInputStream reader = new ObjectInputStream(socket.getInputStream())) {
-            System.out.println("Queso");
+           
                 try {
                     
                     //Transforma el mensaje en el objeto

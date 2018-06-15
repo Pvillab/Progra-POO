@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import model.Pedido;
 import model.Plato;
 
@@ -25,13 +26,15 @@ public class AdministradorInformacion {
     public AdministradorInformacion() {
         this.misPlatos = XmlConverter.XmlToObjectPlatos();
         this.misPedidos = XmlConverter.XmlToObjectPedidos();
+        this.precioExpres = 0.0;
+        this.preciopaquete = 0.0;
         
     }
     
     
 
-    public ListaPlatos getMisPlatos() {
-        return misPlatos;
+    public ArrayList<Plato>  getMisPlatos() {
+        return misPlatos.getLista();
     }
 
     public void setMisPlatos(ListaPlatos misPlatos) {
