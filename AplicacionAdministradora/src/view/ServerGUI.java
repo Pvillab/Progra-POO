@@ -28,7 +28,6 @@ public class ServerGUI extends javax.swing.JFrame {
      */
     public ServerGUI() throws IOException {
         initComponents();
-        jComboBox2.setVisible(false);
         
         miServer = new Server();
         miServer.start(); 
@@ -46,7 +45,7 @@ public class ServerGUI extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
+        jComboBoxOrden = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCatalogo = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -113,7 +112,12 @@ public class ServerGUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Entradas", "Principal", "Postre", "Bebidas" }));
+        jComboBoxOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Entradas", "Principal", "Postre", "Bebidas" }));
+        jComboBoxOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxOrdenActionPerformed(evt);
+            }
+        });
 
         jTableCatalogo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,9 +182,19 @@ public class ServerGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Mostrar:");
 
+        jCheckBoxHabilitado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxHabilitadoMouseClicked(evt);
+            }
+        });
         jCheckBoxHabilitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxHabilitadoActionPerformed(evt);
+            }
+        });
+        jCheckBoxHabilitado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCheckBoxHabilitadoKeyPressed(evt);
             }
         });
 
@@ -199,7 +213,7 @@ public class ServerGUI extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel1)
                         .addGap(44, 44, 44)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -214,7 +228,7 @@ public class ServerGUI extends javax.swing.JFrame {
                     .addComponent(jCheckBoxHabilitado)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -717,6 +731,48 @@ public class ServerGUI extends javax.swing.JFrame {
         actualizarTabla(this.miServer.getADMI().getMisPlatos());
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
+    private void jComboBoxOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOrdenActionPerformed
+        if(jComboBoxOrden.getSelectedItem() == "Todos"){
+            if(jCheckBoxHabilitado.isSelected()){
+                actualizarTabla(this.miServer.listaHabilitados(this.miServer.getADMI().getMisPlatos()));
+            }else{
+                actualizarTabla(this.miServer.getADMI().getMisPlatos());
+            } 
+        }else if(jComboBoxOrden.getSelectedItem() == "Entrada"){
+            if(jCheckBoxHabilitado.isSelected()){
+                actualizarTabla(this.miServer.listaHabilitados(this.miServer.listaEntradas()));
+            }else{
+                actualizarTabla(this.miServer.listaEntradas());
+            } 
+        }else if(jComboBoxOrden.getSelectedItem() == "Postre"){
+            if(jCheckBoxHabilitado.isSelected()){
+                actualizarTabla(this.miServer.listaHabilitados(this.miServer.listaPostres()));
+            }else{
+                actualizarTabla(this.miServer.listaPostres());
+            } 
+        }else if(jComboBoxOrden.getSelectedItem() == "Principal"){
+            if(jCheckBoxHabilitado.isSelected()){
+                actualizarTabla(this.miServer.listaHabilitados(this.miServer.listaPrincipal()));
+            }else{
+                actualizarTabla(this.miServer.listaPrincipal());
+            } 
+        }else if(jComboBoxOrden.getSelectedItem() == "Bebidas"){
+            if(jCheckBoxHabilitado.isSelected()){
+                actualizarTabla(this.miServer.listaHabilitados(this.miServer.listaBebidas()));
+            }else{
+                actualizarTabla(this.miServer.listaBebidas());
+            } 
+        }
+    }//GEN-LAST:event_jComboBoxOrdenActionPerformed
+
+    private void jCheckBoxHabilitadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCheckBoxHabilitadoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxHabilitadoKeyPressed
+
+    private void jCheckBoxHabilitadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxHabilitadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxHabilitadoMouseClicked
+
     public void actualizarTabla(ArrayList<Plato> listaPlatos){
         DefaultTableModel model=(DefaultTableModel) jTableCatalogo.getModel();
         model.setRowCount(0);
@@ -789,7 +845,7 @@ public class ServerGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGuardarCambios;
     private javax.swing.JCheckBox jCheckBoxDisponible;
     private javax.swing.JCheckBox jCheckBoxHabilitado;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBoxOrden;
     private javax.swing.JComboBox jComboBoxTipoConsulta;
     private javax.swing.JComboBox jComboTipo;
     private javax.swing.JLabel jLabel1;

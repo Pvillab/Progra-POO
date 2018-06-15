@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Pedido;
 
 
 /*
@@ -188,7 +189,74 @@ public class Server {
         this.miThread = miThread;
     }
     
-    
+    /**
+     * Retornar un arreglo con los platillos de entrada.
+     * @return ArrayList
+     */
+    public ArrayList<Plato> listaEntradas(){
+        ArrayList<Plato> lista = null;
+        for(int i = 0; i<this.ADMI.getMisPlatos().size(); i++){
+            if(this.ADMI.getMisPlatos().get(i).getTipo() == "ENT"){
+                lista.add(this.ADMI.getMisPlatos().get(i));
+            }
+        }
+        return lista;
+    }
   
+    /**
+     * Retornar un arreglo con los postres.
+     * @return ArrayList
+     */
+    public ArrayList<Plato> listaPostres(){
+        ArrayList<Plato> lista = null;
+        for(int i = 0; i<this.ADMI.getMisPlatos().size(); i++){
+            if(this.ADMI.getMisPlatos().get(i).getTipo() == "PTR"){
+                lista.add(this.ADMI.getMisPlatos().get(i));
+            }
+        }
+        return lista;
+    }
     
+    /**
+     * Retornar un arreglo con los platos principales.
+     * @return ArrayList
+     */
+    public ArrayList<Plato> listaPrincipal(){
+        ArrayList<Plato> lista = null;
+        for(int i = 0; i<this.ADMI.getMisPlatos().size(); i++){
+            if(this.ADMI.getMisPlatos().get(i).getTipo() == "PRN"){
+                lista.add(this.ADMI.getMisPlatos().get(i));
+            }
+        }
+        return lista;
+    }
+    
+    /**
+     * Retornar un arreglo con las bebidas.
+     * @return ArrayList
+     */
+    public ArrayList<Plato> listaBebidas(){
+        ArrayList<Plato> lista = null;
+        for(int i = 0; i<this.ADMI.getMisPlatos().size(); i++){
+            if(this.ADMI.getMisPlatos().get(i).getTipo() == "BEB"){
+                lista.add(this.ADMI.getMisPlatos().get(i));
+            }
+        }
+        return lista;
+    }
+    
+    /**
+     * Retorna arreglo de platos que se encuentren habilitados.
+     * @param lista
+     * @return 
+     */
+    public ArrayList<Plato> listaHabilitados(ArrayList<Plato> lista){
+        ArrayList<Plato> arreglo = null;
+        for(int i = 0; i<lista.size(); i++){
+            if(lista.get(i).isHabilitado()){
+                lista.add(lista.get(i));
+            }
+        }
+        return arreglo;
+    }
 }
