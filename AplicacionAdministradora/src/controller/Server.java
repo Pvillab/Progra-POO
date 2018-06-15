@@ -67,13 +67,6 @@ public class Server {
             
         }
        
-        
-        
-        
-        
-        
-        
-          
     }
     
     public void nuevoPlatillo(Plato miPlato){
