@@ -19,7 +19,7 @@ import java.io.InputStream;
 public class MyFileWriter {
     
     /**
-     * Convierte el archivo en los bytes que seran leidos por el cliente
+     * Convierte el archivo en los bytes que seran leidos por el cliente.
      * @param fileName
      * @param inputStream
      * @return

@@ -21,12 +21,17 @@ import model.Plato;
 public class ClienteTP3 {
     
     Socket socketEnvio;
-     Socket socketRecibo;
+    Socket socketRecibo;
     double precioPaquete;
     double precioExpres;
     ArrayList <Plato> misPlatos;
     Thread miThread;
     
+    /**
+     * Conecta el cliente con el servidor.
+     * @throws IOException
+     * @throws InterruptedException 
+     */
     public void conectar() throws IOException, InterruptedException{
       
         socketEnvio = new Socket("127.0.0.1", 4006);
@@ -40,11 +45,17 @@ public class ClienteTP3 {
         
     }
 
+    /**
+     * Prueba que se encuentre activa la conexion.
+     * @return 
+     */
     boolean isRunning() {
         return socketRecibo.isConnected();
     }
     
-
+    /**
+     * Detiene la conexion con el servidor.
+     */
     void stop() {
         try {
             socketRecibo.close();
@@ -53,6 +64,11 @@ public class ClienteTP3 {
         }
     }
     
+    /**
+     * Envia un mensaje desde el cliente hacia el servidor.
+     * @param miMensaje
+     * @throws InterruptedException 
+     */
     public void enviarMensaje(Mensaje miMensaje) throws InterruptedException{
        
         try {

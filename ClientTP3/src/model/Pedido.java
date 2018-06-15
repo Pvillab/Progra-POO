@@ -20,6 +20,13 @@ public abstract class Pedido implements Serializable  {
     private static int numeroSerial;
     private String nombreRealizaPedido;
 
+    /**
+     * Constructor
+     * @param misPlatos
+     * @param numeroPorciones
+     * @param fechaRealizado
+     * @param nombreRealizaPedido 
+     */
     public Pedido(ArrayList<Plato> misPlatos, ArrayList<Integer> numeroPorciones, Date fechaRealizado, String nombreRealizaPedido) {
         this.misPlatos = misPlatos;
         this.numeroPorciones = numeroPorciones;

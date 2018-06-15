@@ -17,6 +17,15 @@ public class PedidoRecoger extends Pedido {
     private String nombreRecoger;
     private int numeroCelular;
 
+    /**
+     * Constructor
+     * @param nombreRecoger
+     * @param numeroCelular
+     * @param misPlatos
+     * @param numeroPorciones
+     * @param fechaRealizado
+     * @param nombreRealizaPedido 
+     */
     public PedidoRecoger(String nombreRecoger, int numeroCelular, ArrayList<Plato> misPlatos, ArrayList<Integer> numeroPorciones, Date fechaRealizado, String nombreRealizaPedido) {
         super(misPlatos, numeroPorciones, fechaRealizado, nombreRealizaPedido);
         this.nombreRecoger = nombreRecoger;
@@ -38,12 +47,11 @@ public class PedidoRecoger extends Pedido {
     public void setNumeroCelular(int numeroCelular) {
         this.numeroCelular = numeroCelular;
     }
-
-    public double calcularCostoPaquete(){
-        //implentar la llamada al servidor o desde el cliente
-        return 0.0;
-    }
     
+    /**
+     * Retorna el tipo de orden que tiene el pedido.
+     * @return String 
+     */
     @Override
     public String tipoOrden() {
         return "Recoger";

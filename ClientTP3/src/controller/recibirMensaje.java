@@ -22,7 +22,7 @@ import java.util.logging.Logger;
     private final ClienteTP3 ClienteTP3;    
 
     /**
-     *
+     *Constructor
      * @param ClienteTP3
      * @param socket
      */
@@ -31,6 +31,9 @@ import java.util.logging.Logger;
        this.socket = socket;
    }
 
+    /**
+     * Es el thread del cliente.
+     */
    @Override
     public void run() {
         while (ClienteTP3.isRunning()) {

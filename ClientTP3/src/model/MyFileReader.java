@@ -13,6 +13,12 @@ import java.io.IOException;
 
 public class MyFileReader {
     
+    /**
+     * Convierte el archivo en los bytes que seran leidos por el cliente.
+     * @param fileName
+     * @return Byte
+     * @throws IOException 
+     */
     public byte[] readFile(String fileName) throws IOException {
         File file = new File(fileName);
         byte[] fileData = new byte[(int)file.length()];

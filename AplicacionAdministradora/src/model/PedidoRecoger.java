@@ -61,6 +61,7 @@ public class PedidoRecoger extends Pedido {
         }
         return resultado;
     }
+    
     /**
      * Devuelve el tipo de orden del pedido.
      * @return String

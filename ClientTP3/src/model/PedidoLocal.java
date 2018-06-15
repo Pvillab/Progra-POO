@@ -16,6 +16,14 @@ public class PedidoLocal extends Pedido{
     
     private int numMesa;
 
+    /**
+     * Constructor
+     * @param numMesa
+     * @param misPlatos
+     * @param numeroPorciones
+     * @param fechaRealizado
+     * @param nombreRealizaPedido 
+     */
     public PedidoLocal(int numMesa, ArrayList<Plato> misPlatos, ArrayList<Integer> numeroPorciones, Date fechaRealizado, String nombreRealizaPedido) {
         super(misPlatos, numeroPorciones, fechaRealizado, nombreRealizaPedido);
         this.numMesa = numMesa;

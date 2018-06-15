@@ -29,7 +29,7 @@ public class Mensaje implements Serializable {
     private ArrayList <Plato> misPlatos;
 
     /**
-     * Mensaje que envia un plato.
+     * Constructor con Plato
      * @param type
      * @param miPlato 
      */
@@ -39,7 +39,7 @@ public class Mensaje implements Serializable {
     }
     
     /**
-     * Mensaje que envia el precio.
+     * Constructor con Precio.
      * @param type
      * @param precio 
      */
@@ -49,7 +49,7 @@ public class Mensaje implements Serializable {
     }
 
     /**
-     * Mensaje que envia el pedido.
+     * Constructor con pedidos.
      * @param type
      * @param pedido 
      */
@@ -60,7 +60,7 @@ public class Mensaje implements Serializable {
     }
 
     /**
-     * Mensaje que envia el arreglo de platos.
+     * Constructor con arreglo de Platos.
      * @param type
      * @param misPlatos 
      */

@@ -18,6 +18,16 @@ public class PedidoExpres extends Pedido {
     private int numeroCelular;
     private String ubicacionExacta;
 
+    /**
+     * Constructor
+     * @param nnombreRecoger
+     * @param numeroCelular
+     * @param ubicacionExacta
+     * @param misPlatos
+     * @param numeroPorciones
+     * @param fechaRealizado
+     * @param nombreRealizaPedido 
+     */
     public PedidoExpres(String nnombreRecoger, int numeroCelular, String ubicacionExacta, ArrayList<Plato> misPlatos, ArrayList<Integer> numeroPorciones, Date fechaRealizado, String nombreRealizaPedido) {
         super(misPlatos, numeroPorciones, fechaRealizado, nombreRealizaPedido);
         this.nnombreRecoger = nnombreRecoger;
