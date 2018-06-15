@@ -19,6 +19,7 @@ public final class  Plato implements Serializable {
     private String nombre;
     private String descripcion;
     private int racionRecomendada;
+    private double precio;
     private int caloriasPorcion;
     private double piezasPorPorcion;
     private double pesoporPorcion;
@@ -155,8 +156,13 @@ public final class  Plato implements Serializable {
     public void setMiImagen(Imagen miImagen) {
         this.miImagen = miImagen;
     }
-    
-    
-    
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
     
 }

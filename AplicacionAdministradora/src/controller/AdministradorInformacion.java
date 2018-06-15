@@ -26,13 +26,10 @@ public class AdministradorInformacion {
     public AdministradorInformacion() {
         this.misPlatos = XmlConverter.XmlToObjectPlatos();
         this.misPedidos = XmlConverter.XmlToObjectPedidos();
-<<<<<<< HEAD
         this.precioExpres = 0;
         this.preciopaquete = 0;
-=======
         this.precioExpres = 0.0;
         this.preciopaquete = 0.0;
->>>>>>> cbf093139e1795c4f254b2f0e9f60660c0bb3296
         
     }
     
